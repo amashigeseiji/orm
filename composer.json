@@ -1,0 +1,26 @@
+{
+    "name": "tenjuu99/orm",
+    "type": "library",
+    "require": {
+        "aura/sql": "^3.0",
+        "aura/sqlquery": "^2.7",
+        "doctrine/annotations": "^1.10",
+        "ray/di": "^2.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "tenjuu99\\ORM\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "amashigeseiji",
+            "email": "tenjuu99@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
