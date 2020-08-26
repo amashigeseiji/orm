@@ -45,12 +45,20 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
     /** @var array */
     private $schemaCache = [];
 
+    /** @var TableSchema */
+    private $schema;
     /** @var EntityFactory */
     private $entity;
     /** @var ExtendedPdoInterface */
     private $pdo;
     /** @var QueryFactory */
     private $queryFactory;
+
+    public function __construct(ExtendedPdoInterface $pdo, TableSchema $schema)
+    {
+        $this->pdo = $pdo;
+        $this->schema = $schema;
+    }
 
     /**
      * @Inject
@@ -66,14 +74,6 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
         if (class_exists($class)) {
             $this->entity->setClass($class);
         }
-    }
-
-    /**
-     * @Inject
-     */
-    public function setPdo(ExtendedPdoInterface $pdo = null)
-    {
-        $this->pdo = $pdo;
     }
 
     /**
@@ -357,15 +357,11 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
 
     private function getSelectColumnsFromTable(string $tableName, string $alias) : array
     {
-        if (isset($this->schemaCache[$tableName])) {
-            return $this->schemaCache[$tableName];
-        }
-        $q = 'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = "' . $tableName . '" AND table_schema = (SELECT database())';
-        $schema = $this->pdo->query($q)->fetchAll();
+        $columns = $this->schema->getColumns($tableName);
 
-        return $this->schemaCache[$tableName] = array_map(function ($value) use ($alias) {
-            return $alias . '.' . $value['COLUMN_NAME'] . ' AS ' . $alias . '__' . $value['COLUMN_NAME'];
-        }, $schema);
+        return array_map(function ($value) use ($alias) {
+            return $alias . '.' . $value['name'] . ' AS ' . $alias . '__' . $value['name'];
+        }, $columns);
     }
 
     /**
