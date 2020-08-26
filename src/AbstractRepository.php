@@ -266,7 +266,6 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
             (string) $query,
             $bind
         );
-        $this->clear();
         return $result;
     }
 
