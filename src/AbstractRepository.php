@@ -16,9 +16,9 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
     /** @var string|null */
     protected $from;
     /** @var array */
-    protected $where = [];
+    private $where = [];
     /** @var array */
-    protected $join = [];
+    private $join = [];
 
     /** @var array|null */
     private $cols;
