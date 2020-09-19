@@ -12,7 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "tenjuu99\\ORM\\": "src/"
+            "tenjuu99\\ORM\\": "src/",
+            "tenjuu99\\Test\\": "test/"
         }
     },
     "license": "MIT",
