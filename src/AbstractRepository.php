@@ -151,6 +151,26 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
     }
 
     /**
+     * @param string     $column 対象カラム
+     * @param string|int $from   範囲指定の始点
+     * @param string|int $to     範囲指定の終点
+     *
+     * @return static
+     */
+    public function whereBetween(string $column, $from, $to) : self
+    {
+        $base = str_replace('.', '_', $column);
+
+        $placeholderFrom = $base . '_from';
+        $placeholderTo = $base . '_to';
+        $this->where[] = "{$column} BETWEEN :{$placeholderFrom} AND :{$placeholderTo}";
+        $this->setCondition($placeholderFrom, $from);
+        $this->setCondition($placeholderTo, $to);
+
+        return $this;
+    }
+
+    /**
      * @return static
      */
     public function paging(int $page, int $pageSize) : self
