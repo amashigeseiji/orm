@@ -9,9 +9,10 @@ use tenjuu99\ORM\Pagination;
 use Countable;
 use Exception;
 use IteratorAggregate;
+use JsonSerializable;
 use Ray\Di\Di\Inject;
 
-abstract class AbstractRepository implements Countable, IteratorAggregate
+abstract class AbstractRepository implements Countable, IteratorAggregate, JsonSerializable
 {
     /** @var string|null */
     protected $from;
@@ -390,5 +391,10 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
     public function setQueryFactory(QueryFactory $factory) : void
     {
         $this->queryFactory = $factory;
+    }
+
+    public function jsonSerialize()
+    {
+        return iterator_to_array($this);
     }
 }
