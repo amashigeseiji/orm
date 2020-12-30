@@ -324,6 +324,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
             throw new Exception('from が未定義です');
         }
 
+        /** @var \Aura\SqlQuery\Common\Select */
         $query = $this->queryFactory->newSelect()->from($this->from);
         if ($this->with) {
             foreach ($this->with as $joinName) {
@@ -386,7 +387,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate
     /**
      * @Inject
      */
-    public function setQueryFactory(QueryFactory $factory)
+    public function setQueryFactory(QueryFactory $factory) : void
     {
         $this->queryFactory = $factory;
     }
