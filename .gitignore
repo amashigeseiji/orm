@@ -1,2 +1,4 @@
 vendor/
 demo/demo.db
+composer.lock
+test.db

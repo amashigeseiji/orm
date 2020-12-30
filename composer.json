@@ -12,9 +12,17 @@
     },
     "autoload": {
         "psr-4": {
-            "tenjuu99\\ORM\\": "src/",
+            "tenjuu99\\ORM\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "tenjuu99\\Test\\": "test/"
         }
+    },
+    "scripts": {
+      "demo": "php demo/run.php",
+      "test": "php vendor/bin/phpunit test/"
     },
     "license": "MIT",
     "authors": [
