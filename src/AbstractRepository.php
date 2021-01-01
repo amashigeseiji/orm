@@ -9,7 +9,7 @@ use Countable;
 use Exception;
 use IteratorAggregate;
 use JsonSerializable;
-use Ray\Di\Di\Inject;
+use Ray\Di\Di\PostConstruct;
 
 abstract class AbstractRepository implements Countable, IteratorAggregate, JsonSerializable
 {
@@ -54,18 +54,19 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
     /** @var QueryFactory */
     private $queryFactory;
 
-    public function __construct(DbConnectionInterface $conn, TableSchema $schema)
+    public function __construct(DbConnectionInterface $conn, TableSchema $schema, QueryFactory $factory, EntityFactory $entity)
     {
         $this->conn = $conn;
         $this->schema = $schema;
+        $this->queryFactory = $factory;
+        $this->entity = $entity;
     }
 
     /**
-     * @Inject
+     * @PostConstruct
      */
-    public function setFactory(EntityFactory $entity) : void
+    public function initialize() : void
     {
-        $this->entity = $entity;
         $class = static::class;
         if (strpos($class, '_') !== false) {
             $class = explode('_', $class)[0];
@@ -382,14 +383,6 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
         return array_map(function ($value) use ($alias) {
             return $alias . '.' . $value['name'] . ' AS ' . $alias . '__' . $value['name'];
         }, $columns);
-    }
-
-    /**
-     * @Inject
-     */
-    public function setQueryFactory(QueryFactory $factory) : void
-    {
-        $this->queryFactory = $factory;
     }
 
     public function jsonSerialize()
