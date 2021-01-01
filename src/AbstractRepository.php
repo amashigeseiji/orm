@@ -1,7 +1,6 @@
 <?php
 namespace tenjuu99\ORM;
 
-use Aura\Sql\ExtendedPdoInterface;
 use Aura\SqlQuery\Common\Select;
 use Aura\SqlQuery\QueryFactory;
 use Aura\SqlQuery\QueryInterface;
@@ -50,14 +49,14 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
     private $schema;
     /** @var EntityFactory */
     private $entity;
-    /** @var ExtendedPdoInterface */
-    private $pdo;
+    /** @var DbConnectionInterface */
+    private $conn;
     /** @var QueryFactory */
     private $queryFactory;
 
-    public function __construct(ExtendedPdoInterface $pdo, TableSchema $schema)
+    public function __construct(DbConnectionInterface $conn, TableSchema $schema)
     {
-        $this->pdo = $pdo;
+        $this->conn = $conn;
         $this->schema = $schema;
     }
 
@@ -283,7 +282,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
 
     protected function perform(QueryInterface $query, array $bind = []) : \PDOStatement
     {
-        $result = $this->pdo->perform(
+        $result = $this->conn->perform(
             (string) $query,
             $bind
         );

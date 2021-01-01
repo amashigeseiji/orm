@@ -11,8 +11,8 @@ class TableSchema
         'sqlite' => 'SELECT * FROM sqlite_master',
     ];
 
-    /** @var ExtendedPdoInterface */
-    private $pdo;
+    /** @var DbConnectionInterface */
+    private $conn;
     /** @var string */
     private $dbType;
 
@@ -24,15 +24,15 @@ class TableSchema
     /**
      * @Named("dbType=queryfactory_dbtype")
      */
-    public function __construct(ExtendedPdoInterface $pdo, string $dbType)
+    public function __construct(DbConnectionInterface $conn, string $dbType)
     {
-        $this->pdo = $pdo;
+        $this->conn = $conn;
         $this->dbType = $dbType;
     }
 
     public function getColumns(string $tableName) : array
     {
-        if ($this->columns[$tableName]) {
+        if (isset($this->columns[$tableName])) {
             return $this->columns[$tableName];
         }
         $method = 'columns' . ucfirst($this->dbType);
@@ -48,7 +48,7 @@ class TableSchema
         if (!array_key_exists($this->dbType, self::QUERY)) {
             throw new \LogicException();
         }
-        return $this->allSchema = $this->pdo->query(self::QUERY[$this->dbType])->fetchAll();
+        return $this->allSchema = $this->conn->query(self::QUERY[$this->dbType])->fetchAll();
     }
 
     private function columnsMysql()
