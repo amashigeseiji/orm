@@ -1,17 +1,18 @@
 <?php
+
 namespace tenjuu99\ORM;
 
 use Aura\SqlQuery\Common\Select;
 
 class Criteria
 {
-    /** @var array */
-    private $where = [];
-    /** @var array|null */
+    /** @var null|array */
     public $cols;
 
     /** @var array */
     public $condition = [];
+    /** @var array */
+    private $where = [];
 
     /** @var array */
     private $join = [];
@@ -20,9 +21,9 @@ class Criteria
 
     /** @var array */
     private $groupBy = [];
-    /** @var string|null */
+    /** @var null|string */
     private $having;
-    /** @var array|null */
+    /** @var null|array */
     private $orderBy;
 
     /**
@@ -91,7 +92,7 @@ class Criteria
             $placeholder = $base . '_' . (string) $count;
             $placeholders[] = ':' . $placeholder;
             $this->setCondition($placeholder, $value);
-            $count++;
+            ++$count;
         }
 
         $this->where[] = "{$column} IN (" . implode(',', $placeholders) . ')';
@@ -101,8 +102,8 @@ class Criteria
 
     /**
      * @param string     $column 対象カラム
-     * @param string|int $from   範囲指定の始点
-     * @param string|int $to     範囲指定の終点
+     * @param int|string $from   範囲指定の始点
+     * @param int|string $to     範囲指定の終点
      *
      * @return static
      */
@@ -128,7 +129,7 @@ class Criteria
             'table' => $table,
             'cond' => $condition,
             'bind' => $bind,
-            'joinType' => $joinType
+            'joinType' => $joinType,
         ];
 
         return $this;
@@ -174,14 +175,6 @@ class Criteria
         return $this;
     }
 
-    /**
-     * @param mixed $value
-     */
-    private function setCondition(string $key, $value) : void
-    {
-        $this->condition[$key] = $value;
-    }
-
     public function clear() : void
     {
         $this->where = [];
@@ -223,5 +216,13 @@ class Criteria
         }
 
         return $query;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    private function setCondition(string $key, $value) : void
+    {
+        $this->condition[$key] = $value;
     }
 }

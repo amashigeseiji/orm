@@ -1,4 +1,5 @@
 <?php
+
 namespace tenjuu99\ORM;
 
 use Aura\SqlQuery\QueryFactory;

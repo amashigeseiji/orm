@@ -2,3 +2,4 @@ vendor/
 demo/demo.db
 composer.lock
 test.db
+.php_cs.cache

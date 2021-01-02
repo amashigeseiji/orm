@@ -1,4 +1,5 @@
 <?php
+
 namespace tenjuu99\ORM;
 
 use PDO;
@@ -14,7 +15,7 @@ class DbConnection implements DbConnectionInterface
         $this->pdo = $pdo;
     }
 
-    public function query($statement, ...$fetch): PDOStatement
+    public function query($statement, ...$fetch) : PDOStatement
     {
         return $this->pdo->query($statement, ...$fetch);
     }

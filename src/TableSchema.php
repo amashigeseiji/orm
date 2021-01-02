@@ -1,7 +1,7 @@
 <?php
+
 namespace tenjuu99\ORM;
 
-use Aura\Sql\ExtendedPdoInterface;
 use Ray\Di\Di\Named;
 
 class TableSchema
@@ -37,6 +37,7 @@ class TableSchema
         }
         $method = 'columns' . ucfirst($this->dbType);
         $this->columns = $this->{$method}();
+
         return $this->columns[$tableName];
     }
 
@@ -45,9 +46,10 @@ class TableSchema
         if ($this->allSchema) {
             return $this->allSchema;
         }
-        if (!array_key_exists($this->dbType, self::QUERY)) {
+        if (! array_key_exists($this->dbType, self::QUERY)) {
             throw new \LogicException();
         }
+
         return $this->allSchema = $this->conn->query(self::QUERY[$this->dbType])->fetchAll();
     }
 
@@ -57,7 +59,7 @@ class TableSchema
         $allSchema = $this->getAllSchema();
         foreach ($allSchema as $row) {
             $tableNameRow = $row['TABLE_NAME'];
-            if (!isset($columns[$tableNameRow])) {
+            if (! isset($columns[$tableNameRow])) {
                 $columns[$tableNameRow] = [];
             }
             $columns[$tableNameRow][] = [
@@ -65,6 +67,7 @@ class TableSchema
                 'type' => $row['COLUMN_TYPE'],
             ];
         }
+
         return $columns;
     }
 
@@ -76,7 +79,7 @@ class TableSchema
             $table = $row['tbl_name'];
             $columns[$table] = [];
             $string = strtolower($row['sql']);
-            $pattern = "/create table {$table}\s?\((.*)\)/";
+            $pattern = "/create table {$table}\\s?\\((.*)\\)/";
             preg_match($pattern, $string, $match);
             $tableColumns = explode(',', $match[1]);
 
@@ -88,6 +91,7 @@ class TableSchema
                 ];
             }
         }
+
         return $columns;
     }
 }

@@ -1,8 +1,9 @@
 <?php
+
 namespace tenjuu99\ORM;
 
-use Ray\Di\AbstractModule;
 use PDO;
+use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
 
 class PdoModule extends AbstractModule

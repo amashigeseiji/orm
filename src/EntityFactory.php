@@ -1,4 +1,5 @@
 <?php
+
 namespace tenjuu99\ORM;
 
 use Doctrine\Common\Annotations\AnnotationReader;
@@ -10,7 +11,7 @@ class EntityFactory
 {
     /** @var AnnotationReader */
     private $reader;
-    /** @var ReflectionClass|null */
+    /** @var null|ReflectionClass */
     private $class;
 
     public function __construct(AnnotationReader $reader)
@@ -20,7 +21,7 @@ class EntityFactory
 
     public function setClass(?string $class) : void
     {
-        if ($class === null) {
+        if (null === $class) {
             $this->class = null;
         } elseif (class_exists($class)) {
             $this->class = new ReflectionClass($class);
@@ -29,7 +30,7 @@ class EntityFactory
 
     public function ready() : bool
     {
-        return $this->class !== null;
+        return null !== $this->class;
     }
 
     /**

@@ -1,10 +1,10 @@
 <?php
+
 namespace tenjuu99\ORM;
 
 use Aura\SqlQuery\Common\Select;
 use Aura\SqlQuery\QueryFactory;
 use Aura\SqlQuery\QueryInterface;
-use tenjuu99\ORM\Pagination;
 use Countable;
 use Exception;
 use IteratorAggregate;
@@ -13,7 +13,7 @@ use Ray\Di\Di\PostConstruct;
 
 abstract class AbstractRepository implements Countable, IteratorAggregate, JsonSerializable
 {
-    /** @var string|null */
+    /** @var null|string */
     protected $from;
 
     /** @var Criteria */
@@ -53,7 +53,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
     public function initialize() : void
     {
         $class = static::class;
-        if (strpos($class, '_') !== false) {
+        if (false !== strpos($class, '_')) {
             $class = explode('_', $class)[0];
         }
         $class = preg_replace('/Repository$/', '', $class);
@@ -110,8 +110,8 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
 
     /**
      * @param string     $column 対象カラム
-     * @param string|int $from   範囲指定の始点
-     * @param string|int $to     範囲指定の終点
+     * @param int|string $from   範囲指定の始点
+     * @param int|string $to     範囲指定の終点
      *
      * @return static
      */
@@ -218,6 +218,16 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
         return $this;
     }
 
+    public function clear() : void
+    {
+        $this->criteria->clear();
+    }
+
+    public function jsonSerialize()
+    {
+        return iterator_to_array($this);
+    }
+
     /**
      * @return static
      */
@@ -230,11 +240,10 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
 
     protected function perform(QueryInterface $query, array $bind = []) : \PDOStatement
     {
-        $result = $this->conn->perform(
+        return $this->conn->perform(
             (string) $query,
             $bind
         );
-        return $result;
     }
 
     private function getResult(array $column = null, bool $paging = false) : \PDOStatement
@@ -245,11 +254,6 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
         }
 
         return $this->perform($query, $this->criteria->condition);
-    }
-
-    public function clear() : void
-    {
-        $this->criteria->clear();
     }
 
     private function buildQuery() : Select
@@ -287,10 +291,5 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
         return array_map(function ($value) use ($alias) {
             return $alias . '.' . $value['name'] . ' AS ' . $alias . '__' . $value['name'];
         }, $columns);
-    }
-
-    public function jsonSerialize()
-    {
-        return iterator_to_array($this);
     }
 }
