@@ -15,18 +15,9 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
 {
     /** @var string|null */
     protected $from;
-    /** @var array */
-    private $where = [];
-    /** @var array */
-    private $join = [];
 
-    /** @var array|null */
-    private $cols;
-    /** @var array */
-    private $condition = [];
-
-    /** @var array */
-    private $with = [];
+    /** @var Criteria */
+    private $criteria;
 
     /** @var bool */
     private $paging = false;
@@ -36,11 +27,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
     private $pageSize;
 
     /** @var array */
-    private $groupBy = [];
-    /** @var string|null */
-    private $having;
-    /** @var array|null */
-    private $orderBy;
+    private $with = [];
 
     /** @var TableSchema */
     private $schema;
@@ -51,12 +38,13 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
     /** @var QueryFactory */
     private $queryFactory;
 
-    public function __construct(DbConnectionInterface $conn, TableSchema $schema, QueryFactory $factory, EntityFactory $entity)
+    public function __construct(DbConnectionInterface $conn, TableSchema $schema, QueryFactory $factory, EntityFactory $entity, Criteria $criteria)
     {
         $this->conn = $conn;
         $this->schema = $schema;
         $this->queryFactory = $factory;
         $this->entity = $entity;
+        $this->criteria = $criteria;
     }
 
     /**
@@ -79,7 +67,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function cols(array $cols) : self
     {
-        $this->cols = $cols;
+        $this->criteria->cols($cols);
 
         return $this;
     }
@@ -91,11 +79,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function where(string $column, $value) : self
     {
-        $placeholder = str_replace('.', '_', $column);
-
-        $this->where[] = "{$column} = :{$placeholder}";
-
-        $this->setCondition($placeholder, $value);
+        $this->criteria->where($column, $value);
 
         return $this;
     }
@@ -109,21 +93,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function like($column, $value) : self
     {
-        if (is_string($column)) {
-            $placeholder = str_replace('.', '_', $column);
-
-            $this->where[] = "{$column} LIKE :{$placeholder}";
-
-            $this->setCondition($placeholder, '%' . $value . '%');
-        } else {
-            $stmt = [];
-            foreach ($column as $col) {
-                $placeholder = str_replace('.', '_', $col);
-                $stmt[] = "{$col} LIKE :{$placeholder}";
-                $this->setCondition($placeholder, '%' . $value . '%');
-            }
-            $this->where[] = '(' . implode(' OR ', $stmt) . ')';
-        }
+        $this->criteria->like($column, $value);
 
         return $this;
     }
@@ -133,17 +103,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function whereIn(string $column, array $values) : self
     {
-        $base = str_replace('.', '_', $column);
-        $placeholders = [];
-        $count = 0;
-        foreach ($values as $value) {
-            $placeholder = $base . '_' . (string) $count;
-            $placeholders[] = ':' . $placeholder;
-            $this->setCondition($placeholder, $value);
-            $count++;
-        }
-
-        $this->where[] = "{$column} IN (" . implode(',', $placeholders) . ')';
+        $this->criteria->whereIn($column, $values);
 
         return $this;
     }
@@ -157,13 +117,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function whereBetween(string $column, $from, $to) : self
     {
-        $base = str_replace('.', '_', $column);
-
-        $placeholderFrom = $base . '_from';
-        $placeholderTo = $base . '_to';
-        $this->where[] = "{$column} BETWEEN :{$placeholderFrom} AND :{$placeholderTo}";
-        $this->setCondition($placeholderFrom, $from);
-        $this->setCondition($placeholderTo, $to);
+        $this->criteria->whereBetween($column, $from, $to);
 
         return $this;
     }
@@ -185,6 +139,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function with(string ...$joins) : self
     {
+        $this->criteria->with(...$joins);
         $this->with = array_merge($this->with, $joins);
 
         return $this;
@@ -195,7 +150,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function groupBy(array $column) : self
     {
-        $this->groupBy = $column;
+        $this->criteria->groupBy($column);
 
         return $this;
     }
@@ -205,7 +160,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function having(string $having) : self
     {
-        $this->having = $having;
+        $this->criteria->having($having);
 
         return $this;
     }
@@ -215,14 +170,14 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function orderBy(array $orderBy) : self
     {
-        $this->orderBy = $orderBy;
+        $this->criteria->orderBy($orderBy);
 
         return $this;
     }
 
     public function getIterator()
     {
-        $result = $this->getResult($this->cols, true);
+        $result = $this->getResult($this->criteria->cols, true);
         while ($item = $result->fetch()) {
             yield $this->entity->create($item);
         }
@@ -268,12 +223,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     protected function join(string $table, string $condition = null, array $bind = [], string $joinType = 'LEFT') : self
     {
-        $this->join[$table] = [
-            'table' => $table,
-            'cond' => $condition,
-            'bind' => $bind,
-            'joinType' => $joinType
-        ];
+        $this->criteria->join($table, $condition, $bind, $joinType);
 
         return $this;
     }
@@ -294,26 +244,12 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
             $query->setPaging($this->pageSize)->page($this->page);
         }
 
-        return $this->perform($query, $this->condition);
+        return $this->perform($query, $this->criteria->condition);
     }
 
     public function clear() : void
     {
-        $this->where = [];
-        $this->with = [];
-        $this->groupBy = [];
-        $this->having = '';
-        $this->orderBy = [];
-        $this->cols = [];
-        $this->condition = [];
-    }
-
-    /**
-     * @param mixed $value
-     */
-    private function setCondition(string $key, $value) : void
-    {
-        $this->condition[$key] = $value;
+        $this->criteria->clear();
     }
 
     private function buildQuery() : Select
@@ -324,34 +260,8 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
 
         /** @var \Aura\SqlQuery\Common\Select */
         $query = $this->queryFactory->newSelect()->from($this->from);
-        if ($this->with) {
-            foreach ($this->with as $joinName) {
-                if (! isset($this->join[$joinName])) {
-                    continue;
-                }
-                $join = $this->join[$joinName];
-                $query->join($join['joinType'], $join['table'], $join['cond'], $join['bind']);
-                if ($join['bind']) {
-                    foreach ($join['bind'] as $key => $val) {
-                        $this->setCondition($key, $val);
-                    }
-                }
-            }
-        }
-        foreach ($this->where as $where) {
-            $query->where($where);
-        }
-        if ($this->groupBy) {
-            $query->groupBy($this->groupBy);
-            if ($this->having) {
-                $query->having($this->having);
-            }
-        }
-        if ($this->orderBy) {
-            $query->orderBy($this->orderBy);
-        }
 
-        return $query;
+        return $this->criteria->build($query);
     }
 
     private function defaultColumns() : array
@@ -362,9 +272,6 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
         $columns = $this->getSelectColumnsFromTable($this->from, $this->from);
         if ($this->with) {
             foreach ($this->with as $join) {
-                if (! isset($this->join[$join])) {
-                    continue;
-                }
                 $joinTable = $this->getSelectColumnsFromTable($join, $join);
                 $columns = array_merge($columns, $joinTable);
             }
