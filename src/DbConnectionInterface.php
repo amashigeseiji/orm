@@ -22,8 +22,6 @@ interface DbConnectionInterface
      *
      * @param string $statement the SQL statement to prepare and execute
      * @param array  $values    values to bind to the query
-     *
-     * @return \PDOStatement
      */
-    public function perform($statement, array $values = []);
+    public function perform(string $statement, array $values = []) : PDOStatement;
 }

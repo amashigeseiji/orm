@@ -20,7 +20,7 @@ class DbConnection implements DbConnectionInterface
         return $this->pdo->query($statement, ...$fetch);
     }
 
-    public function perform($statement, array $values = [])
+    public function perform(string $statement, array $values = []) : PDOStatement
     {
         $stmt = $this->pdo->prepare($statement);
         $stmt->execute($values);
