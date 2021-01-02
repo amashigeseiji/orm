@@ -42,9 +42,6 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
     /** @var array|null */
     private $orderBy;
 
-    /** @var array */
-    private $schemaCache = [];
-
     /** @var TableSchema */
     private $schema;
     /** @var EntityFactory */
