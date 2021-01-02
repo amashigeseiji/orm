@@ -1,8 +1,8 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use Aura\Sql\ExtendedPdoInterface;
 use Ray\Di\Di\Inject;
+use Ray\Di\Di\PostConstruct;
 use Ray\Di\Injector;
 use tenjuu99\ORM\AbstractRepository;
 use tenjuu99\ORM\OrmModule;
@@ -10,20 +10,48 @@ use tenjuu99\ORM\OrmModule;
 class Demo
 {
     private $repository;
-    public function __construct(UserRepository $repository)
+    private $db;
+    public function __construct(UserRepository $repository, PDO $pdo)
     {
         $this->repository = $repository;
+        $this->db = new class($pdo) {
+            private $pdo;
+            public function __construct(PDO $pdo)
+            {
+                $this->pdo = $pdo;
+            }
+
+            public function createTable() : void
+            {
+                $this->pdo->query('CREATE TABLE IF NOT EXISTS user(id integer, name varchar(255))')->execute();
+                $this->pdo->query('CREATE TABLE IF NOT EXISTS project(id integer, name varchar(255), user_id integer)')->execute();
+            }
+
+            public function createUser(int $id, string $name) : void
+            {
+                $stmt = $this->pdo->prepare('INSERT INTO user(id, name) VALUES(:id, :name)');
+                $stmt->execute(compact('id', 'name'));
+            }
+
+            public function createProject(string $name, int $user_id) : void
+            {
+                $stmt = $this->pdo->prepare('INSERT INTO project(name, user_id) VALUES(:name, :user_id)');
+                $stmt->execute(compact('name', 'user_id'));
+            }
+        };
     }
 
     public function loop()
     {
-        $this->repository->createTable();
-        $this->repository->createUser(1, 'hoge');
-        $this->repository->createUser(2, 'fuga');
+        $this->db->createTable();
+        $this->db->createUser(1, 'hoge');
+        $this->db->createUser(2, 'fuga');
+        $this->db->createProject('hoge\'s project 1', 1);
+        $this->db->createProject('hoge\'s project 2', 1);
         foreach ($this->repository as $row) {
             var_dump($row);
         }
-        foreach ($this->repository->where('id', 1) as $user) {
+        foreach ($this->repository->where('user.id', 1) as $user) {
             echo 'user id is: ' . $user->id . PHP_EOL;
             if ($user->id != 1) {
                 throw new \Exception('id is not filtered.');
@@ -35,26 +63,16 @@ class Demo
 class UserRepository extends AbstractRepository
 {
     protected $from = 'user';
-
-    private $pdoExtra;
+    protected $assign = User::class;
 
     /**
-     * @Inject
+     * @PostConstruct
      */
-    public function injectPdo(PDO $pdo) : void
+    public function initialize(): void
     {
-        $this->pdoExtra = $pdo;
-    }
-
-    public function createTable()
-    {
-        $this->pdoExtra->query('CREATE TABLE IF NOT EXISTS user(id integer, name varchar(255))')->execute();
-    }
-
-    public function createUser(int $id, string $name)
-    {
-        $stmt = $this->pdoExtra->prepare('INSERT INTO user(id, name) VALUES(:id, :name)');
-        $stmt->execute(compact('id', 'name'));
+        parent::initialize();
+        $this->join('project', 'project.user_id = user.id');
+        $this->with('project');
     }
 }
 
@@ -71,8 +89,17 @@ class User
      * @Entity(prop="name",table="user")
      */
     public $name;
+
+    /**
+     * @Entity(prop="name",table="project")
+     */
+    public $projectName;
 }
 
+$db = 'demo/demo.db';
+if (file_exists($db)) {
+    unlink($db);
+}
 $module = new OrmModule('sqlite');
 $module->install(new PdoModule('sqlite:demo/demo.db'));
 $injector = new Injector($module);
