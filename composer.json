@@ -2,7 +2,6 @@
     "name": "tenjuu99/orm",
     "type": "library",
     "require": {
-        "aura/sql": "^3.0",
         "aura/sqlquery": "^2.7",
         "doctrine/annotations": "^1.10",
         "ray/di": "^2.10"

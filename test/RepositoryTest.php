@@ -8,6 +8,7 @@ use Ray\Di\Injector;
 use tenjuu99\ORM\AbstractRepository;
 use tenjuu99\ORM\Annotation\Entity;
 use tenjuu99\ORM\OrmModule;
+use tenjuu99\ORM\PdoModule;
 
 class RepositoryTest extends TestCase
 {
@@ -26,7 +27,8 @@ class RepositoryTest extends TestCase
 
     public function testRepository()
     {
-        $module = new OrmModule('sqlite:test.db');
+        $module = new OrmModule('sqlite');
+        $module->install(new PdoModule('sqlite:test.db'));
         $injector = new Injector($module);
         $repo = $injector->getInstance(UserRepository::class);
         self::assertCount(2, $repo);

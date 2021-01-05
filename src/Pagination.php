@@ -1,4 +1,5 @@
 <?php
+
 namespace tenjuu99\ORM;
 
 use JsonSerializable;
@@ -74,7 +75,7 @@ class Pagination implements JsonSerializable
             'next' => $this->next(),
             'prev' => $this->prev(),
             'last' => $this->last(),
-            'first' => $this->first()
+            'first' => $this->first(),
         ];
     }
 
