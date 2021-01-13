@@ -5,7 +5,7 @@
         "aura/sqlquery": "^2.7",
         "doctrine/annotations": "^1.8",
         "ray/di": "^2.10",
-        "bear/resource": "1.x-dev",
+        "bear/resource": "^1.14",
         "bear/app-meta": "1.x-dev"
     },
     "require-dev": {
