@@ -1,4 +1,5 @@
 <?php
+
 namespace tenjuu99\ORM;
 
 use BEAR\Resource\Annotation\AppName;
@@ -7,7 +8,7 @@ use BEAR\Resource\Module\SchemeCollectionProvider;
 use Ray\Di\InjectorInterface;
 use Ray\Di\ProviderInterface;
 
-class TableSchemeCollectionProvider
+class TableSchemeCollectionProvider implements ProviderInterface
 {
     /**
      * @var string
@@ -25,8 +26,6 @@ class TableSchemeCollectionProvider
     private $provider;
 
     /**
-     * @param string $appName
-     *
      * @AppName("appName")
      */
     public function __construct(string $appName, InjectorInterface $injector, SchemeCollectionProvider $provider)
