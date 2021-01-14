@@ -15,6 +15,8 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
 {
     /** @var null|string */
     protected $from;
+    /** @var null|string */
+    protected $assign;
 
     /** @var Criteria */
     private $criteria;
