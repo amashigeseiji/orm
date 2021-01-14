@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  orm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/work"
+    working_dir: /work
+    entrypoint: composer
+    command:
+      - test
