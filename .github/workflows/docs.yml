@@ -1,0 +1,26 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  deploy-dir: .gh-pages
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        php-version:
+          - '8.0'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate documents
+        run: docker run --rm -v $PWD:/data phpdoc/phpdoc:3 run -d . -t ${{ env.deploy-dir }}
+      - name: Deploy documents to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.deploy-dir }}
