@@ -1,0 +1,31 @@
+name: test
+
+on:
+  push:
+    paths-ignore:
+      - 'LICENSE'
+      - 'README.*'
+  pull_request:
+    paths-ignore:
+      - 'LICENSE'
+      - 'README.*'
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        php-version:
+          - '7.4'
+          - '8.0'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2
+      - name: Install dependencies
+        run: composer install
+      - name: Tests
+        run: composer test
