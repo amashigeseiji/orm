@@ -23,13 +23,13 @@ $injector = new Injector($module, __DIR__ . '/tmp');
 /** @var PDO */
 $pdo = $injector->getInstance(PDO::class);
 $pdo->query('CREATE TABLE IF NOT EXISTS sample(id integer, name varchar(255))')->execute();
-$pdo->query('INSERT INTO sample(id, name) VALUES (1, "test 1")')->execute();
-$pdo->query('INSERT INTO sample(id, name) VALUES (2, "test 2")')->execute();
+$pdo->query('INSERT INTO sample(id, name) VALUES (1, "test 1")');
+$pdo->query('INSERT INTO sample(id, name) VALUES (2, "test 2")');
 /** @var ResourceInterface */
 $resource = $injector->getInstance(ResourceInterface::class);
-//var_dump($resource->get('table://self/sample')->body['sample']);
 
-foreach ($resource->get('table://self/sample')->body['sample'] as $row) {
-    var_dump($row);
-}
+var_dump((string) $resource->get('table://self/sample'));
+$ro = $resource->get('table://self/sample');
+$ro['sample']->where('id', 1);
+var_dump((string) $ro);
 unlink('demo/table-demo.db');
