@@ -1,4 +1,5 @@
 <?php
+
 namespace tenjuu99\Test;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
@@ -10,16 +11,20 @@ use tenjuu99\ORM\Annotation\Entity;
 use tenjuu99\ORM\OrmModule;
 use tenjuu99\ORM\PdoModule;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class RepositoryTest extends TestCase
 {
-    public static function setUpBeforeClass(): void
+    public static function setUpBeforeClass() : void
     {
         $pdo = new \PDO('sqlite:test.db');
         $pdo->exec('CREATE TABLE user(id integer, name varchar(255))');
         $pdo->exec('INSERT INTO user values(1, "test1 user"), (2, "test2 user")');
     }
 
-    public static function tearDownAfterClass(): void
+    public static function tearDownAfterClass() : void
     {
         $pdo = new \PDO('sqlite:test.db');
         $pdo->exec('DROP TABLE user');
@@ -33,13 +38,13 @@ class RepositoryTest extends TestCase
         $repo = $injector->getInstance(UserRepository::class);
         self::assertCount(2, $repo);
         foreach ($repo as $row) {
-            if ($row->id == 1) {
+            if (1 == $row->id) {
                 $user = new User();
                 $user->id = 1;
                 $user->name = 'test1 user';
                 self::assertEquals($user, $row);
             }
-            if ($row->id == 2) {
+            if (2 == $row->id) {
                 $user = new User();
                 $user->id = 2;
                 $user->name = 'test2 user';
@@ -52,6 +57,7 @@ class RepositoryTest extends TestCase
 class UserRepository extends AbstractRepository
 {
     protected $from = 'user';
+    protected $assign = User::class;
 }
 
 class User

@@ -15,6 +15,8 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
 {
     /** @var null|string */
     protected $from;
+    /** @var null|string */
+    protected $assign;
 
     /** @var Criteria */
     private $criteria;
@@ -52,14 +54,7 @@ abstract class AbstractRepository implements Countable, IteratorAggregate, JsonS
      */
     public function initialize() : void
     {
-        $class = static::class;
-        if (false !== strpos($class, '_')) {
-            $class = explode('_', $class)[0];
-        }
-        $class = preg_replace('/Repository$/', '', $class);
-        if (class_exists($class)) {
-            $this->entity->setClass($class);
-        }
+        $this->entity->setClass($this->assign);
     }
 
     /**
