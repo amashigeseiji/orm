@@ -88,17 +88,20 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    TableSchema
+    TableInterceptor
 
     
     
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <abbr title="\Ray\Aop\MethodInterceptor">MethodInterceptor</abbr>                    </span>
     
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 </aside>
 
         
@@ -108,6 +111,17 @@
 
 
 
+<h3 id="interfaces_class_traits">
+    Interfaces, Classes and Traits
+    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\Ray\Aop\MethodInterceptor">MethodInterceptor</abbr></dt>
+        <dd></dd>
+    
+    
+    </dl>
 
 
 <h3 id="toc">
@@ -116,73 +130,52 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#constant_QUERY">QUERY</a>
-    <span>
-        &nbsp;= [&#039;mysql&#039; =&gt; &#039;SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_schema = (SELECT database())&#039;, &#039;sqlite&#039; =&gt; &#039;SELECT * FROM sqlite_master&#039;]                    </span>
-</dt>
-<dd></dd>
-
                 <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#property_allSchema">$allSchema</a>
+    <a href="classes/tenjuu99-ORM-TableInterceptor.html#property_autoload">$autoload</a>
     <span>
-                &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                &nbsp;: <a href="classes/tenjuu99-ORM-TableAutoload.html"><abbr title="\tenjuu99\ORM\TableAutoload">TableAutoload</abbr></a>            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#property_columns">$columns</a>
+    <a href="classes/tenjuu99-ORM-TableInterceptor.html#property_injector">$injector</a>
     <span>
-                &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                &nbsp;: <abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr>            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#property_conn">$conn</a>
-    <span>
-                &nbsp;: <a href="classes/tenjuu99-ORM-DbConnectionInterface.html"><abbr title="\tenjuu99\ORM\DbConnectionInterface">DbConnectionInterface</abbr></a>            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#property_dbType">$dbType</a>
+    <a href="classes/tenjuu99-ORM-TableInterceptor.html#property_namespace">$namespace</a>
     <span>
                 &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#method___construct">__construct()</a>
+    <a href="classes/tenjuu99-ORM-TableInterceptor.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#method_getColumns">getColumns()</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#method_columnsMysql">columnsMysql()</a>
+    <a href="classes/tenjuu99-ORM-TableInterceptor.html#method_invoke">invoke()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#method_columnsSqlite">columnsSqlite()</a>
+    <a href="classes/tenjuu99-ORM-TableInterceptor.html#method_getTableClassName">getTableClassName()</a>
     <span>
-                        &nbsp;: mixed    </span>
+                        &nbsp;: string    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/tenjuu99-ORM-TableSchema.html#method_getAllSchema">getAllSchema()</a>
+    <a href="classes/tenjuu99-ORM-TableInterceptor.html#method_getTableInstance">getTableInstance()</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                        &nbsp;: <a href="classes/tenjuu99-ORM-AbstractRepository.html"><abbr title="\tenjuu99\ORM\AbstractRepository">AbstractRepository</abbr></a>    </span>
 </dt>
 <dd></dd>
 
@@ -191,43 +184,12 @@
 
 
         
-    <section class="phpdocumentor-constants">
-        <h3 class="phpdocumentor-elements__header" id="constants">
-            Constants
-            <a href="classes/tenjuu99-ORM-TableSchema.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
-        </h3>
-                    <article class="phpdocumentor-element -constant -private ">
-    <h4 class="phpdocumentor-element__name" id="constant_QUERY">
-        QUERY
-        <a href="classes/tenjuu99-ORM-TableSchema.html#constant_QUERY" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">9</span>
-</aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">QUERY</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;mysql&#039; =&gt; &#039;SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_schema = (SELECT database())&#039;, &#039;sqlite&#039; =&gt; &#039;SELECT * FROM sqlite_master&#039;]</span>
-</code>
-
-
-    
-    
-
-</article>
-            </section>
 
         
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/tenjuu99-ORM-TableSchema.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/tenjuu99-ORM-TableInterceptor.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
@@ -236,23 +198,23 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_allSchema">
-        $allSchema
-        <a href="classes/tenjuu99-ORM-TableSchema.html#property_allSchema" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_autoload">
+        $autoload
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#property_autoload" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$allSchema</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/tenjuu99-ORM-TableAutoload.html"><abbr title="\tenjuu99\ORM\TableAutoload">TableAutoload</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$autoload</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -267,23 +229,23 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_columns">
-        $columns
-        <a href="classes/tenjuu99-ORM-TableSchema.html#property_columns" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_injector">
+        $injector
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#property_injector" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$columns</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr></span>
+    <span class="phpdocumentor-signature__name">$injector</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -298,54 +260,23 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_conn">
-        $conn
-        <a href="classes/tenjuu99-ORM-TableSchema.html#property_conn" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_namespace">
+        $namespace
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#property_namespace" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/tenjuu99-ORM-DbConnectionInterface.html"><abbr title="\tenjuu99\ORM\DbConnectionInterface">DbConnectionInterface</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$conn</span>
-    </code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_dbType">
-        $dbType
-        <a href="classes/tenjuu99-ORM-TableSchema.html#property_dbType" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$dbType</span>
+    <span class="phpdocumentor-signature__name">$namespace</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -358,7 +289,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/tenjuu99-ORM-TableSchema.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/tenjuu99-ORM-TableInterceptor.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -368,32 +299,39 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/tenjuu99-ORM-TableSchema.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/tenjuu99-ORM-DbConnectionInterface.html"><abbr title="\tenjuu99\ORM\DbConnectionInterface">DbConnectionInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$conn</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbType</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$injector</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/tenjuu99-ORM-TableAutoload.html"><abbr title="\tenjuu99\ORM\TableAutoload">TableAutoload</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$autoload</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$namespace</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$conn</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/tenjuu99-ORM-DbConnectionInterface.html"><abbr title="\tenjuu99\ORM\DbConnectionInterface">DbConnectionInterface</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$injector</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$dbType</span>
+                <span class="phpdocumentor-signature__argument__name">$autoload</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/tenjuu99-ORM-TableAutoload.html"><abbr title="\tenjuu99\ORM\TableAutoload">TableAutoload</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$namespace</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -412,7 +350,7 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>(&quot;dbType=queryfactory_dbtype&quot;)</p>
+                                                 <section class="phpdocumentor-description"><p>(&quot;namespace=TableNamespace&quot;)</p>
 </section>
 
                                     </dd>
@@ -431,26 +369,110 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getColumns">
-        getColumns()
-        <a href="classes/tenjuu99-ORM-TableSchema.html#method_getColumns" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_invoke">
+        invoke()
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#method_invoke" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getColumns</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tableName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                <span class="phpdocumentor-signature__name">invoke</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Ray\Aop\MethodInvocation">MethodInvocation</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$invocation</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tableName</span>
+                <span class="phpdocumentor-signature__argument__name">$invocation</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Ray\Aop\MethodInvocation">MethodInvocation</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getTableClassName">
+        getTableClassName()
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#method_getTableClassName" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">53</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">getTableClassName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\BEAR\Resource\ResourceObject">ResourceObject</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ro</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$ro</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\BEAR\Resource\ResourceObject">ResourceObject</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getTableInstance">
+        getTableInstance()
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#method_getTableInstance" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableInterceptor.php"><a href="files/src-tableinterceptor.html"><abbr title="src/TableInterceptor.php">TableInterceptor.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">getTableInstance</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$className</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/tenjuu99-ORM-AbstractRepository.html"><abbr title="\tenjuu99\ORM\AbstractRepository">AbstractRepository</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$className</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -461,103 +483,7 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_columnsMysql">
-        columnsMysql()
-        <a href="classes/tenjuu99-ORM-TableSchema.html#method_columnsMysql" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">56</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                <span class="phpdocumentor-signature__name">columnsMysql</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_columnsSqlite">
-        columnsSqlite()
-        <a href="classes/tenjuu99-ORM-TableSchema.html#method_columnsSqlite" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">74</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                <span class="phpdocumentor-signature__name">columnsSqlite</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getAllSchema">
-        getAllSchema()
-        <a href="classes/tenjuu99-ORM-TableSchema.html#method_getAllSchema" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchema.php"><a href="files/src-tableschema.html"><abbr title="src/TableSchema.php">TableSchema.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">44</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                <span class="phpdocumentor-signature__name">getAllSchema</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/tenjuu99-ORM-AbstractRepository.html"><abbr title="\tenjuu99\ORM\AbstractRepository">AbstractRepository</abbr></a></span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -579,7 +505,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/tenjuu99-ORM-TableSchema.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/tenjuu99-ORM-TableInterceptor.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

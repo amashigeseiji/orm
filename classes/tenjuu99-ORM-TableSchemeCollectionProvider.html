@@ -88,17 +88,20 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    EntityFactory
+    TableSchemeCollectionProvider
 
     
     
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <abbr title="\Ray\Di\ProviderInterface">ProviderInterface</abbr>                    </span>
     
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/EntityFactory.php"><a href="files/src-entityfactory.html"><abbr title="src/EntityFactory.php">EntityFactory.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchemeCollectionProvider.php"><a href="files/src-tableschemecollectionprovider.html"><abbr title="src/TableSchemeCollectionProvider.php">TableSchemeCollectionProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 </aside>
 
         
@@ -108,6 +111,17 @@
 
 
 
+<h3 id="interfaces_class_traits">
+    Interfaces, Classes and Traits
+    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\Ray\Di\ProviderInterface">ProviderInterface</abbr></dt>
+        <dd></dd>
+    
+    
+    </dl>
 
 
 <h3 id="toc">
@@ -117,44 +131,37 @@
 
 <dl class="phpdocumentor-table-of-contents">
                 <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/tenjuu99-ORM-EntityFactory.html#property_class">$class</a>
+    <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#property_appName">$appName</a>
     <span>
-                &nbsp;: null|<abbr title="\ReflectionClass">ReflectionClass</abbr>            </span>
+                &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/tenjuu99-ORM-EntityFactory.html#property_reader">$reader</a>
+    <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#property_injector">$injector</a>
     <span>
-                &nbsp;: <abbr title="\Doctrine\Common\Annotations\AnnotationReader">AnnotationReader</abbr>            </span>
+                &nbsp;: <abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr>            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#property_provider">$provider</a>
+    <span>
+                &nbsp;: <abbr title="\BEAR\Resource\Module\SchemeCollectionProvider">SchemeCollectionProvider</abbr>            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/tenjuu99-ORM-EntityFactory.html#method___construct">__construct()</a>
+    <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/tenjuu99-ORM-EntityFactory.html#method_create">create()</a>
+    <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#method_get">get()</a>
     <span>
-                        &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/tenjuu99-ORM-EntityFactory.html#method_ready">ready()</a>
-    <span>
-                        &nbsp;: bool    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/tenjuu99-ORM-EntityFactory.html#method_setClass">setClass()</a>
-    <span>
-                        &nbsp;: void    </span>
+                        &nbsp;: <abbr title="\BEAR\Resource\SchemeCollection">SchemeCollection</abbr>    </span>
 </dt>
 <dd></dd>
 
@@ -168,7 +175,7 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/tenjuu99-ORM-EntityFactory.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
@@ -177,23 +184,23 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_class">
-        $class
-        <a href="classes/tenjuu99-ORM-EntityFactory.html#property_class" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_appName">
+        $appName
+        <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#property_appName" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/EntityFactory.php"><a href="files/src-entityfactory.html"><abbr title="src/EntityFactory.php">EntityFactory.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchemeCollectionProvider.php"><a href="files/src-tableschemecollectionprovider.html"><abbr title="src/TableSchemeCollectionProvider.php">TableSchemeCollectionProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">null|<abbr title="\ReflectionClass">ReflectionClass</abbr></span>
-    <span class="phpdocumentor-signature__name">$class</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$appName</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -208,23 +215,54 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_reader">
-        $reader
-        <a href="classes/tenjuu99-ORM-EntityFactory.html#property_reader" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_injector">
+        $injector
+        <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#property_injector" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/EntityFactory.php"><a href="files/src-entityfactory.html"><abbr title="src/EntityFactory.php">EntityFactory.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchemeCollectionProvider.php"><a href="files/src-tableschemecollectionprovider.html"><abbr title="src/TableSchemeCollectionProvider.php">TableSchemeCollectionProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\Doctrine\Common\Annotations\AnnotationReader">AnnotationReader</abbr></span>
-    <span class="phpdocumentor-signature__name">$reader</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr></span>
+    <span class="phpdocumentor-signature__name">$injector</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_provider">
+        $provider
+        <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchemeCollectionProvider.php"><a href="files/src-tableschemecollectionprovider.html"><abbr title="src/TableSchemeCollectionProvider.php">TableSchemeCollectionProvider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">26</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\BEAR\Resource\Module\SchemeCollectionProvider">SchemeCollectionProvider</abbr></span>
+    <span class="phpdocumentor-signature__name">$provider</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -237,7 +275,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/tenjuu99-ORM-EntityFactory.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -247,96 +285,10 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/tenjuu99-ORM-EntityFactory.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/EntityFactory.php"><a href="files/src-entityfactory.html"><abbr title="src/EntityFactory.php">EntityFactory.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">17</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Doctrine\Common\Annotations\AnnotationReader">AnnotationReader</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reader</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$reader</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Doctrine\Common\Annotations\AnnotationReader">AnnotationReader</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_create">
-        create()
-        <a href="classes/tenjuu99-ORM-EntityFactory.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/EntityFactory.php"><a href="files/src-entityfactory.html"><abbr title="src/EntityFactory.php">EntityFactory.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$item</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$item</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|bool</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-            <section class="phpdocumentor-description"></section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_ready">
-        ready()
-        <a href="classes/tenjuu99-ORM-EntityFactory.html#method_ready" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/EntityFactory.php"><a href="files/src-entityfactory.html"><abbr title="src/EntityFactory.php">EntityFactory.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchemeCollectionProvider.php"><a href="files/src-tableschemecollectionprovider.html"><abbr title="src/TableSchemeCollectionProvider.php">TableSchemeCollectionProvider.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">31</span>
 </aside>
@@ -344,14 +296,54 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">ready</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$appName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$injector</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\BEAR\Resource\Module\SchemeCollectionProvider">SchemeCollectionProvider</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$appName</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$injector</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Ray\Di\InjectorInterface">InjectorInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\BEAR\Resource\Module\SchemeCollectionProvider">SchemeCollectionProvider</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
 
     
-    
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">AppName</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>(&quot;appName&quot;)</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -363,37 +355,28 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setClass">
-        setClass()
-        <a href="classes/tenjuu99-ORM-EntityFactory.html#method_setClass" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_get">
+        get()
+        <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#method_get" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/EntityFactory.php"><a href="files/src-entityfactory.html"><abbr title="src/EntityFactory.php">EntityFactory.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableSchemeCollectionProvider.php"><a href="files/src-tableschemecollectionprovider.html"><abbr title="src/TableSchemeCollectionProvider.php">TableSchemeCollectionProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setClass</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">get</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\BEAR\Resource\SchemeCollection">SchemeCollection</abbr></span></code>
+
+        <section class="phpdocumentor-description"></section>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$class</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\BEAR\Resource\SchemeCollection">SchemeCollection</abbr></span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -415,7 +398,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/tenjuu99-ORM-EntityFactory.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/tenjuu99-ORM-TableSchemeCollectionProvider.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

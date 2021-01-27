@@ -83,22 +83,25 @@
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/tenjuu99.html">tenjuu99</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/tenjuu99-test.html">Test</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/tenjuu99-orm.html">ORM</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    User
+    TableModule
 
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\Ray\Di\AbstractModule">AbstractModule</abbr>
+    </span>
     
     
     
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="test/RepositoryTest.php"><a href="files/test-repositorytest.html"><abbr title="test/RepositoryTest.php">RepositoryTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableModule.php"><a href="files/src-tablemodule.html"><abbr title="src/TableModule.php">TableModule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 </aside>
 
         
@@ -116,21 +119,28 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/tenjuu99-Test-User.html#property_id">$id</a>
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/tenjuu99-ORM-TableModule.html#property_appMeta">$appMeta</a>
     <span>
-                &nbsp;: mixed            </span>
+                &nbsp;: <abbr title="\BEAR\AppMeta\AbstractAppMeta">AbstractAppMeta</abbr>            </span>
 </dt>
 <dd></dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/tenjuu99-Test-User.html#property_name">$name</a>
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/tenjuu99-ORM-TableModule.html#method___construct">__construct()</a>
     <span>
-                &nbsp;: mixed            </span>
+                        &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
-            </dl>
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/tenjuu99-ORM-TableModule.html#method_configure">configure()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+        </dl>
 
 
 
@@ -140,103 +150,122 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/tenjuu99-Test-User.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/tenjuu99-ORM-TableModule.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -public
+            -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_id">
-        $id
-        <a href="classes/tenjuu99-Test-User.html#property_id" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_appMeta">
+        $appMeta
+        <a href="classes/tenjuu99-ORM-TableModule.html#property_appMeta" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="test/RepositoryTest.php"><a href="files/test-repositorytest.html"><abbr title="test/RepositoryTest.php">RepositoryTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableModule.php"><a href="files/src-tablemodule.html"><abbr title="src/TableModule.php">TableModule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$id</span>
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\BEAR\AppMeta\AbstractAppMeta">AbstractAppMeta</abbr></span>
+    <span class="phpdocumentor-signature__name">$appMeta</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">Entity</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(prop=&quot;id&quot;,table=&quot;user&quot;)</p>
-</section>
-
-                                    </dd>
-                        </dl>
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_name">
-        $name
-        <a href="classes/tenjuu99-Test-User.html#property_name" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="test/RepositoryTest.php"><a href="files/test-repositorytest.html"><abbr title="test/RepositoryTest.php">RepositoryTest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">73</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$name</span>
-    </code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">Entity</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(prop=&quot;name&quot;,table=&quot;user&quot;)</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
 </article>
             </section>
 
-        
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/tenjuu99-ORM-TableModule.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/tenjuu99-ORM-TableModule.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableModule.php"><a href="files/src-tablemodule.html"><abbr title="src/TableModule.php">TableModule.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">15</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\BEAR\AppMeta\AbstractAppMeta">AbstractAppMeta</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$abstractAppMeta</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$abstractAppMeta</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\BEAR\AppMeta\AbstractAppMeta">AbstractAppMeta</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_configure">
+        configure()
+        <a href="classes/tenjuu99-ORM-TableModule.html#method_configure" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TableModule.php"><a href="files/src-tablemodule.html"><abbr title="src/TableModule.php">TableModule.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">configure</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+            </section>
+
     </article>
                 <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
@@ -251,7 +280,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/tenjuu99-Test-User.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/tenjuu99-ORM-TableModule.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
